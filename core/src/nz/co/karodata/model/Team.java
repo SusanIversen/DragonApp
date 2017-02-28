@@ -11,9 +11,9 @@ import java.util.Set;
  * Created by Susan on 23/02/2017.
  */
 public class Team {
-    public Person [][] drummers;
-    public Person [][] sweeps;
-    public Paddler [][] paddlers;
+    public Person [] drummers;
+    public Person [] sweeps;
+    public Paddler [] paddlers;
 
     public Team(){
 

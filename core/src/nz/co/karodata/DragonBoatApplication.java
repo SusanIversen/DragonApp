@@ -21,11 +21,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.graphics.Color;
 
+import nz.co.karodata.model.DragonBoat;
+import nz.co.karodata.view.DragonBoatView;
 import nz.co.karodata.view.TeamMember;
 
-public class DragonBoat extends ApplicationAdapter implements InputProcessor{
+public class DragonBoatApplication extends ApplicationAdapter implements InputProcessor{
 	private Stage stageBoat;
 	private Skin skin;
+
+	private DragonBoatView boatView;
 
 	private Integer topPerson;
     private Integer gapPerson;
@@ -69,116 +73,12 @@ public class DragonBoat extends ApplicationAdapter implements InputProcessor{
 
 	@Override
 	public void create () {
-	    skin = new Skin(Gdx.files.internal("uiskin.json"));
+	    skin = new Skin(Gdx.files.internal("core/assets/uiskin.json"));
 		stageBoat = new Stage(new ScreenViewport());
 
-		//First get the boat UI all set up
-		boatMiddle = 220;
-		boatLeft = 130;
-		boatRight = 300;
-		boatTop = 575;
-		boatGap = 50;
+		//TODO dont just create a new boat here, save it as the boat that will be passed throughout the app
+        boatView = new DragonBoatView(stageBoat, new DragonBoat(), 130, 0);
 
-		Group groupBoat = new Group();
-		Image imageBoat = new Image(new Texture(Gdx.files.internal("dragon_boat.png")));
-		groupBoat.addActor(imageBoat);
-		//Drummer
-		labelDrummer = new Label("Drummer",skin);
-		groupBoat.addActor(labelDrummer);
-		labelDrummer.setName("Drummer");
-		//LHS
-		labelLHSRow1 = new Label("LHSRow1", skin);
-		groupBoat.addActor(labelLHSRow1);
-		labelLHSRow1.setName("LHSRow1");
-		labelLHSRow2 = new Label("LHSRow2", skin);
-		groupBoat.addActor(labelLHSRow2);
-        labelLHSRow2.setName("LHSRow2");
-		labelLHSRow3 = new Label("LHSRow3", skin);
-		groupBoat.addActor(labelLHSRow3);
-        labelLHSRow3.setName("LHSRow3");
-		labelLHSRow4 = new Label("LHSRow4", skin);
-		groupBoat.addActor(labelLHSRow4);
-        labelLHSRow4.setName("LHSRow4");
-		labelLHSRow5 = new Label("LHSRow5", skin);
-		groupBoat.addActor(labelLHSRow5);
-        labelLHSRow5.setName("LHSRow5");
-		labelLHSRow6 = new Label("LHSRow6", skin);
-		groupBoat.addActor(labelLHSRow6);
-        labelLHSRow6.setName("LHSRow6");
-		labelLHSRow7 = new Label("LHSRow7", skin);
-		groupBoat.addActor(labelLHSRow7);
-        labelLHSRow7.setName("LHSRow7");
-		labelLHSRow8 = new Label("LHSRow8", skin);
-		groupBoat.addActor(labelLHSRow8);
-        labelLHSRow8.setName("LHSRow8");
-		labelLHSRow9 = new Label("LHSRow9", skin);
-		groupBoat.addActor(labelLHSRow9);
-        labelLHSRow9.setName("LHSRow9");
-		labelLHSRow10 = new Label("LHSRow10", skin);
-		groupBoat.addActor(labelLHSRow10);
-        labelLHSRow10.setName("LHSRow10");
-		//RHS
-		groupBoat.addActor(labelDrummer);
-		labelRHSRow1 = new Label("RHSRow1", skin);
-		groupBoat.addActor(labelRHSRow1);
-        labelRHSRow1.setName("RHSRow1");
-		labelRHSRow2 = new Label("RHSRow2", skin);
-		groupBoat.addActor(labelRHSRow2);
-        labelRHSRow2.setName("RHSRow2");
-		labelRHSRow3 = new Label("RHSRow3", skin);
-		groupBoat.addActor(labelRHSRow3);
-        labelRHSRow3.setName("RHSRow3");
-		labelRHSRow4 = new Label("RHSRow4", skin);
-		groupBoat.addActor(labelRHSRow4);
-        labelRHSRow4.setName("RHSRow4");
-		labelRHSRow5 = new Label("RHSRow5", skin);
-		groupBoat.addActor(labelRHSRow5);
-        labelRHSRow5.setName("RHSRow5");
-		labelRHSRow6 = new Label("RHSRow6", skin);
-		groupBoat.addActor(labelRHSRow6);
-        labelRHSRow6.setName("RHSRow6");
-		labelRHSRow7 = new Label("RHSRow7", skin);
-		groupBoat.addActor(labelRHSRow7);
-        labelRHSRow7.setName("RHSRow7");
-		labelRHSRow8 = new Label("RHSRow8", skin);
-		groupBoat.addActor(labelRHSRow8);
-        labelRHSRow8.setName("RHSRow8");
-		labelRHSRow9 = new Label("RHSRow9", skin);
-		groupBoat.addActor(labelRHSRow9);
-        labelRHSRow9.setName("RHSRow9");
-		labelRHSRow10 = new Label("RHSRow10", skin);
-		groupBoat.addActor(labelRHSRow10);
-        labelRHSRow10.setName("RHSRow10");
-        //Sweep
-        labelSweep = new Label("Sweep",skin);
-        groupBoat.addActor(labelSweep);
-
-		stageBoat.addActor(groupBoat);
-		labelDrummer.setPosition(boatMiddle,boatTop);
-		labelLHSRow1.setPosition(boatLeft, boatTop - boatGap);
-		labelRHSRow1.setPosition(boatRight, boatTop - boatGap);
-		labelLHSRow2.setPosition(boatLeft, boatTop - (boatGap * 2));
-		labelRHSRow2.setPosition(boatRight, boatTop - (boatGap * 2));
-		labelLHSRow3.setPosition(boatLeft, boatTop - (boatGap * 3));
-		labelRHSRow3.setPosition(boatRight, boatTop - (boatGap * 3));
-		labelLHSRow4.setPosition(boatLeft, boatTop - (boatGap * 4));
-		labelRHSRow4.setPosition(boatRight, boatTop - (boatGap * 4));
-		labelLHSRow5.setPosition(boatLeft, boatTop - (boatGap * 5));
-		labelRHSRow5.setPosition(boatRight, boatTop - (boatGap * 5));
-		labelLHSRow6.setPosition(boatLeft, boatTop - (boatGap * 6));
-		labelRHSRow6.setPosition(boatRight, boatTop - (boatGap * 6));
-		labelLHSRow7.setPosition(boatLeft, boatTop - (boatGap * 7));
-		labelRHSRow7.setPosition(boatRight, boatTop - (boatGap * 7));
-		labelLHSRow8.setPosition(boatLeft, boatTop - (boatGap * 8));
-		labelRHSRow8.setPosition(boatRight, boatTop - (boatGap * 8));
-		labelLHSRow9.setPosition(boatLeft, boatTop - (boatGap * 9));
-		labelRHSRow9.setPosition(boatRight, boatTop - (boatGap * 9));
-		labelLHSRow10.setPosition(boatLeft, boatTop - (boatGap * 10));
-		labelRHSRow10.setPosition(boatRight, boatTop - (boatGap * 10));
-		labelSweep.setPosition(boatMiddle,boatTop - (boatGap * 11));
-
-
-		//Second get the paddlers UI set up
         topPerson = 500;
         gapPerson = 100;
         columnLeftOnly = 600;
@@ -187,7 +87,7 @@ public class DragonBoat extends ApplicationAdapter implements InputProcessor{
         columnRightOnly = 825;
 
         TeamMember groupPerson1 = new TeamMember();
-        Image imagePerson1 = new Image(new Texture(Gdx.files.internal("person.png")));
+        Image imagePerson1 = new Image(new Texture(Gdx.files.internal("core/assets/person.png")));
 		Label labelPerson1 = new Label("LO1", skin);
 		groupPerson1.addActor(imagePerson1);
 		imagePerson1.setName("I_LO1");
@@ -199,7 +99,7 @@ public class DragonBoat extends ApplicationAdapter implements InputProcessor{
 		labelPerson1.setPosition(columnLeftOnly + 50,topPerson + 20);
 
         TeamMember groupPerson2 = new TeamMember();
-        Image imagePerson2 = new Image(new Texture(Gdx.files.internal("person.png")));
+        Image imagePerson2 = new Image(new Texture(Gdx.files.internal("core/assets/person.png")));
         Label labelPerson2 = new Label("LR", skin);
         groupPerson2.addActor(imagePerson2);
         imagePerson2.setName("I_LR");
@@ -211,7 +111,7 @@ public class DragonBoat extends ApplicationAdapter implements InputProcessor{
         labelPerson2.setPosition(columnLeftRight + 50,topPerson + 20);
 
         TeamMember groupPerson3 = new TeamMember();
-        Image imagePerson3 = new Image(new Texture(Gdx.files.internal("person.png")));
+        Image imagePerson3 = new Image(new Texture(Gdx.files.internal("core/assets/person.png")));
         Label labelPerson3 = new Label("RL", skin);
         groupPerson3.addActor(imagePerson3);
         imagePerson3.setName("I_RL");
@@ -223,7 +123,7 @@ public class DragonBoat extends ApplicationAdapter implements InputProcessor{
         labelPerson3.setPosition(columnRightLeft + 50,topPerson + 20);
 
         TeamMember groupPerson4 = new TeamMember();
-        Image imagePerson4 = new Image(new Texture(Gdx.files.internal("person.png")));
+        Image imagePerson4 = new Image(new Texture(Gdx.files.internal("core/assets/person.png")));
         Label labelPerson4 = new Label("RO", skin);
         groupPerson4.addActor(imagePerson4);
         imagePerson4.setName("I_RO");
@@ -235,7 +135,7 @@ public class DragonBoat extends ApplicationAdapter implements InputProcessor{
         labelPerson4.setPosition(columnRightOnly + 50,topPerson + 20);
 
         TeamMember groupPerson5 = new TeamMember();
-        Image imagePerson5 = new Image(new Texture(Gdx.files.internal("person.png")));
+        Image imagePerson5 = new Image(new Texture(Gdx.files.internal("core/assets/person.png")));
         Label labelPerson5 = new Label("LO2", skin);
         groupPerson5.addActor(imagePerson5);
         imagePerson5.setName("I_LO2");
