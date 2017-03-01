@@ -1,0 +1,28 @@
+Header	Name	Weight	Gender	Strength	Side	Preference									
+Drummer	Fred	60	M												
+Paddler	Briyanna	65	f	4	RL	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Camilia	55	f	3	Rl	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Chels	76	f	2	Rl	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Christie	52	f	1	LR	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Elleke	77	f	4	LR	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Maia	94	f	3	LR	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Piper	66	f	2	Rx	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Sasha	60	f	1	Rl	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Shannon	62	f	4	LR	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Stacey	92	f	3	LR	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Tayler	73	f	2	Lr	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Toya	65	f	1	Lr	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	AlexA	67	m	4	Lr	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	AlexN	61	m	3	Lr	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	AJ	83	m	2	RL	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Caleb	61	m	1	RL	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Fredrickson	70	m	4	Lr	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Jamie	68	m	3	RL	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Joe	67	m	2	Lr	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Josh	99	m	1	Rl	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Peter	90	m	4	RL	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Ryan	90	m	3	Rl	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Paddler	Stefan	63	m	2	RL	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred	Preferred
+Sweep	DaveL	95	m												
+															
+															

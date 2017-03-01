@@ -11,8 +11,9 @@ public class Person {
     public Person(String details){
         String[] values = details.split("\t");
         name = values[1];
-        gender = values[2];
-        weight = Integer.parseInt(values[3]);
+        weight = Integer.parseInt(values[2]);
+        gender = values[3];
+
     }
 }
 

@@ -22,12 +22,16 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.graphics.Color;
 
 import nz.co.karodata.model.DragonBoat;
+import nz.co.karodata.model.Team;
 import nz.co.karodata.view.DragonBoatView;
 import nz.co.karodata.view.TeamMember;
+
+import java.io.File;
 
 public class DragonBoatApplication extends ApplicationAdapter implements InputProcessor{
 	private Stage stageBoat;
 	private Skin skin;
+	private Team team;
 
 	private DragonBoatView boatView;
 
@@ -73,6 +77,8 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
 
 	@Override
 	public void create () {
+        team = new Team(new File("core/assets/UHStorm/TeamUHStorm.csv"));
+
 	    skin = new Skin(Gdx.files.internal("core/assets/uiskin.json"));
 		stageBoat = new Stage(new ScreenViewport());
 
@@ -184,8 +190,7 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
 		hitActorDown = stageBoat.hit(coordDown.x,coordDown.y,true);
 
 		if(hitActorDown != null) {
-		    Gdx.app.log("HIT", hitActorDown.getName());
-
+		    Gdx.app.log("touchDown", hitActorDown.getName());
 		    return true;
         }
         else {
@@ -195,8 +200,10 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+/*
         Vector2 coordUp = stageBoat.screenToStageCoordinates(new Vector2((float) screenX, (float) screenY));
         hitActorUp = stageBoat.hit(coordUp.x, coordUp.y, false);
+
 
         if (hitActorUp == hitActorDown) {
 
@@ -304,7 +311,9 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
             }
             hitActorUp = null;
             hitActorDown = null;
+*/
             return false;
+
 	}
 
 	@Override
