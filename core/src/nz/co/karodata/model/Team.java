@@ -15,9 +15,12 @@ import java.util.Set;
 public class Team {
 
     //FIELDS
-    Person [] drummers = new Person[3];
-    Person [] sweeps = new Person[3];
-    Paddler [] paddlers = new Paddler[30];
+    public Person [] drummers = new Person[3];
+    public Person [] sweeps = new Person[3];
+    public Paddler [] paddlers = new Paddler[30];
+    public int numDrummers;
+    public int numSweeps;
+    public int numPaddlers;
 
 
     public Team (File file){
@@ -33,7 +36,6 @@ public class Team {
             while((line = in.readLine()) != null){
                 String[] values = line.split(",");
                 if (values[0].toLowerCase().equals("paddler")){
-                    Gdx.app.log("ShowType", values[0]);
                     paddlers[ip] = new Paddler(values[1], Integer.parseInt(values[2]), values[3], Integer.parseInt(values[4]),values[5], values[6]);
                     ip = ip + 1;
                 } else {
@@ -52,7 +54,9 @@ public class Team {
         } catch (IOException e)  {
             e.printStackTrace();
         }
-
+        numDrummers = id;
+        numPaddlers = ip;
+        numSweeps = is;
     }
 
 }

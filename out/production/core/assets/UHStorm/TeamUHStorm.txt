@@ -1,0 +1,5 @@
+Header,Name,Weight,Gender,Strength,Side,Preference									
+Drummer,Fred,60,M												
+											
+															
+															

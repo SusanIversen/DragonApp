@@ -25,6 +25,7 @@ import nz.co.karodata.model.DragonBoat;
 import nz.co.karodata.model.Team;
 import nz.co.karodata.view.DragonBoatView;
 import nz.co.karodata.view.TeamMember;
+import nz.co.karodata.view.TeamView;
 
 import java.io.File;
 
@@ -34,24 +35,12 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
 	private Team team;
 
 	private DragonBoatView boatView;
-
-	private Integer topPerson;
-    private Integer gapPerson;
-	private Integer columnLeftRight;
-    private Integer columnLeftOnly;
-    private Integer columnRightLeft;
-    private Integer columnRightOnly;
-
-    private Integer boatMiddle;
-    private Integer boatLeft;
-    private Integer boatRight;
-    private Integer boatTop;
-    private Integer boatGap;
+    private TeamView teamView;
 
     private Actor hitActorDown;
     private Actor hitActorUp;
 
-    public Label labelDrummer;
+/*    public Label labelDrummer;
     public Label labelLHSRow1;
     public Label labelRHSRow1;
     public Label labelLHSRow2;
@@ -73,7 +62,7 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
     public Label labelLHSRow10;
     public Label labelRHSRow10;
     public Label labelSweep;
-
+*/
 
 	@Override
 	public void create () {
@@ -84,13 +73,15 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
 
 		//TODO dont just create a new boat here, save it as the boat that will be passed throughout the app
         boatView = new DragonBoatView(stageBoat, new DragonBoat(), 130, 0);
+        teamView = new TeamView(stageBoat, team, 600,0);
 
-        topPerson = 500;
-        gapPerson = 100;
-        columnLeftOnly = 600;
-        columnLeftRight = 675;
-        columnRightLeft = 750;
-        columnRightOnly = 825;
+/*
+        //topPerson = 500;
+        //gapPerson = 100;
+        //columnLeftOnly = 600;
+        //columnLeftRight = 675;
+        //columnRightLeft = 750;
+        //columnRightOnly = 825;
 
         TeamMember groupPerson1 = new TeamMember();
         Image imagePerson1 = new Image(new Texture(Gdx.files.internal("core/assets/person.png")));
@@ -151,7 +142,7 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
         stageBoat.addActor(groupPerson5);
         imagePerson5.setPosition(columnLeftOnly,topPerson - gapPerson);
         labelPerson5.setPosition(columnLeftOnly + 50,topPerson - gapPerson + 20);
-
+*/
         InputMultiplexer im = new InputMultiplexer(this, stageBoat);
         Gdx.input.setInputProcessor(im);
 
