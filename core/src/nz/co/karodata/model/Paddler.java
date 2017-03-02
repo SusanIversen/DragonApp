@@ -7,24 +7,16 @@ import nz.co.karodata.values.Side;
  * Created by Susan on 23/02/2017.
  */
 public class Paddler extends Person {
+
     public int strength;
-    public Side paddlingSide;
-    public Preference[] rowPreferences;
+    public String paddlingSide;
+    public String rowPreferences;
 
-    public Paddler (String details){
-        super(details);
-        String[] values = details.split("\t");
-        String pref = values[4];
-
-        if(pref.equalsIgnoreCase("LX")){
-            paddlingSide = Side.LEFT;
-        }else if(pref.equalsIgnoreCase("RX")){
-            paddlingSide = Side.RIGHT;
-        }else if(pref.equalsIgnoreCase("LR")){
-            paddlingSide = Side.PREFERRED_LEFT;
-        }else if(pref.equalsIgnoreCase("RL")){
-            paddlingSide = Side.PREFERRED_RIGHT;
-        }
+    public Paddler (String inName, Integer inWeight, String inGender, Integer inStrength, String inSide, String inPref1 ){
+        super(inName,inWeight,inGender);
+        this.strength = inStrength;
+        this.paddlingSide = inSide;
+        this.rowPreferences = inPref1;
     }
 }
 

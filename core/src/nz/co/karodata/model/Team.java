@@ -21,8 +21,6 @@ public class Team {
 
 
     public Team (File file){
-//        Team thisTeam = new Team();
-
         int id = 0;
         int ip = 0;
         int is = 0;
@@ -30,35 +28,25 @@ public class Team {
 
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
-  //          Set<Person> drummers = new HashSet<Person>();
-  //          Set<Paddler> paddlers = new HashSet<Paddler>();
- //           Set<Person> sweeps = new HashSet<Person>();
 
             String line;
             while((line = in.readLine()) != null){
                 String[] values = line.split(",");
-                Gdx.app.log("ShowType", line);
-                if (values[0].toString() != "Paddler"){
+                if (values[0].toLowerCase().equals("paddler")){
                     Gdx.app.log("ShowType", values[0]);
-                }
-                /*
-                switch (values[0]){
-                    case "paddler":
-                        paddlers[ip] = new Paddler(line);
-                        ip = ip + 1;
-                        break;
-                    case "drummer":
-                        drummers[id] = new Person(line);
+                    paddlers[ip] = new Paddler(values[1], Integer.parseInt(values[2]), values[3], Integer.parseInt(values[4]),values[5], values[6]);
+                    ip = ip + 1;
+                } else {
+                    if (values[0].toLowerCase().equals("drummer")){
+                        drummers[id] = new Person(values[1], Integer.parseInt(values[2]), values[3]);
                         id = id + 1;
-                        break;
-                    case "sweep":
-                        sweeps[is] = new Person(line);
-                        is = is + 1;
-                        break;
-                    case "default":
-                        break;
+                    } else {
+                        if (values[0].toLowerCase().equals("sweep")){
+                            sweeps[is] = new Person(values[1], Integer.parseInt(values[2]), values[3]);
+                            is = is + 1;
+                        }
+                    }
                 }
-                */
             }
 
         } catch (IOException e)  {
