@@ -25,10 +25,15 @@ public class DragonBoatView {
 
     //VIEW FIELDS
     private Group group;
-    private Label[][] labels = new Label[DragonBoat.NUM_SIDES][DragonBoat.NUM_ROWS];
-    private Label drummer = new Label("Drummer", skin);
-    private Label sweep = new Label("Sweep", skin);
-
+    public Label[][] blables = new Label[DragonBoat.NUM_SIDES][DragonBoat.NUM_ROWS];
+    public Label drummer = new Label("Drummer", skin);
+    public Label sweep = new Label("Sweep", skin);
+    public Label leftweight = new Label("0.0",skin);
+    public Label rightweight = new Label("0.0",skin);
+    public Label balanceweight = new Label("0.0",skin);
+    public Label frontweight = new Label("0.0",skin);
+    public Label backweight = new Label("0.0",skin);
+    public Label balance2weight = new Label("0.0",skin);
 
     public DragonBoatView(Stage stage, DragonBoat boat, int x, int y){
         this.boat = boat;
@@ -56,22 +61,22 @@ public class DragonBoatView {
             float yOffset = ((i+3) * vSpacing);
 
             //LHS
-            labels[0][i] = new Label("LHSide" + (i+1), skin);
-            group.addActor(labels[0][i]);
-            labels[0][i].setName("LHS" + (i+1));
-            labels[0][i].setAlignment(Align.center);
-            labels[0][i].setHeight(vSpacing);
-            labels[0][i].setWidth(hSpacing);
-            labels[0][i].setPosition(0, top - yOffset);
+            blables[0][i] = new Label("LHSide" + (i+1), skin);
+            group.addActor(blables[0][i]);
+            blables[0][i].setName("LHS" + (i+1));
+            blables[0][i].setAlignment(Align.center);
+            blables[0][i].setHeight(vSpacing);
+            blables[0][i].setWidth(hSpacing);
+            blables[0][i].setPosition(0, top - yOffset);
 
             //RHS
-            labels[1][i] = new Label("RHSide" + (i+1), skin);
-            group.addActor(labels[1][i]);
-            labels[1][i].setName("RHS" + (i+1));
-            labels[1][i].setAlignment(Align.center);
-            labels[1][i].setHeight(vSpacing);
-            labels[1][i].setWidth(hSpacing);
-            labels[1][i].setPosition(hSpacing, top - yOffset);
+            blables[1][i] = new Label("RHSide" + (i+1), skin);
+            group.addActor(blables[1][i]);
+            blables[1][i].setName("RHS" + (i+1));
+            blables[1][i].setAlignment(Align.center);
+            blables[1][i].setHeight(vSpacing);
+            blables[1][i].setWidth(hSpacing);
+            blables[1][i].setPosition(hSpacing, top - yOffset);
 
         }
 
@@ -82,6 +87,37 @@ public class DragonBoatView {
         sweep.setHeight(vSpacing);
         sweep.setWidth(hSpacing);
         sweep.setPosition(hSpacing *1/2, top - (13* vSpacing));
+
+        group.addActor(leftweight);
+        leftweight.setName("leftweight");
+        leftweight.setAlignment(Align.left);
+        leftweight.setPosition(70, top - 20);
+
+        group.addActor(rightweight);
+        rightweight.setName("rightweight");
+        rightweight.setAlignment(Align.right);
+        rightweight.setPosition(70 + hSpacing, top - 20);
+
+        group.addActor(balanceweight);
+        balanceweight.setName("balanceweight");
+        balanceweight.setAlignment(Align.center);
+        balanceweight.setPosition(70 + hSpacing *1/2, top - 20);
+
+        group.addActor(frontweight);
+        frontweight.setName("frontweight");
+        frontweight.setAlignment(Align.left);
+        frontweight.setPosition(-70, top - (vSpacing * 4));
+
+        group.addActor(balance2weight);
+        balance2weight.setName("backweight)");
+        balance2weight.setAlignment(Align.right);
+        balance2weight.setPosition(-70 ,top - (vSpacing * 7));
+
+        group.addActor(backweight);
+        backweight.setName("balance2weight");
+        backweight.setAlignment(Align.center);
+        backweight.setPosition(-70, top - (vSpacing * 10));
+
 
         stage.addActor(group);
     }

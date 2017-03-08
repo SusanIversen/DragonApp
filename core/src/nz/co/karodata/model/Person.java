@@ -8,6 +8,8 @@ public class Person {
     public String name;
     public int weight;
     public String gender;
+    public int teamCol;
+    public int teamRow;
 
     public Person(Person person){
         this.person = person;

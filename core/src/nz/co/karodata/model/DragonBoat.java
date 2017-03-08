@@ -9,7 +9,9 @@ public class DragonBoat {
     public static final int LEFT_ROW = 0;
     public static final int RIGHT_ROW = 1;
 
+    public Person drummer;
     public Paddler[][] paddlers = new Paddler[NUM_SIDES][NUM_ROWS];
+    public Person sweep;
 
     public DragonBoat() {
     //Empty Constructor
@@ -25,5 +27,63 @@ public class DragonBoat {
         }
     }
 
+    public long leftWeight(DragonBoat dragonBoat){
+        long w = 0;
+        for(int i = 0; i < DragonBoat.NUM_ROWS; i++) {
+            try {w = w + dragonBoat.paddlers[0][i].weight;} catch (Exception e) { }
+        }
+        return w;
+    }
+
+    public long rightWeight(DragonBoat dragonBoat){
+        long w = 0;
+        for(int i = 0; i < DragonBoat.NUM_ROWS; i++){
+            try { w = w + dragonBoat.paddlers[1][i].weight;} catch (Exception e) { }
+        }
+        return w;
+    }
+
+    public long balance(DragonBoat dragonBoat){
+        long l = 0;
+        long r = 0;
+        long b = 0;
+
+        l = leftWeight(dragonBoat) ;
+        r = rightWeight(dragonBoat);
+        b = l - r;
+        return b;
+    }
+
+    public long frontWeight(DragonBoat dragonBoat){
+        long w = 0;
+        try {w = w + dragonBoat.drummer.weight;} catch (Exception e) { }
+
+        for(int i = 0; i < DragonBoat.NUM_ROWS/2; i++){
+            try { w = w + dragonBoat.paddlers[0][i].weight;} catch (Exception e) { }
+            try { w = w + dragonBoat.paddlers[1][i].weight;} catch (Exception e) { }
+        }
+        return w;
+    }
+
+    public long backWeight(DragonBoat dragonBoat){
+        long w = 0;
+        try {w = w + dragonBoat.sweep.weight;} catch (Exception e) { }
+
+        for(int i = DragonBoat.NUM_ROWS/2; i < DragonBoat.NUM_ROWS; i++){
+            try { w = w + dragonBoat.paddlers[0][i].weight;} catch (Exception e) { }
+            try { w = w + dragonBoat.paddlers[1][i].weight;} catch (Exception e) { }
+        }
+        return w;
+    }
+    public long balance2(DragonBoat dragonBoat){
+        long f = 0;
+        long bk = 0;
+        long b = 0;
+
+        f = frontWeight(dragonBoat) ;
+        bk = backWeight(dragonBoat);
+        b = f - bk;
+        return b;
+    }
 
 }

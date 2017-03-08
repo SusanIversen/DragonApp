@@ -1,9 +1,12 @@
 package nz.co.karodata.view;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.ColorAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -31,8 +34,8 @@ public class TeamView {
     //VIEW FIELDS
     private Group group;
     //Images and Labels for Drummers, LO, LR, RL, RO, Sweeps
-    private Image [] [] images = new Image[6][20];
-    private Label [] [] labels = new Label[6][20];
+    public Image [] [] images = new Image[6][20];
+    public Label [] [] tlables = new Label[6][20];
 
 
 
@@ -42,7 +45,7 @@ public class TeamView {
 
         group.setPosition(x,y);
 
-        float vSpacing = 40;
+        float vSpacing = 50;
         float hSpacing = WIDTH/4;
         float top = HEIGHT;
 
@@ -65,62 +68,85 @@ public class TeamView {
         Gdx.app.log("Team Size",Integer.toString(team.numPaddlers) );
         for(int i = 0; i < team.numPaddlers; i++){
             if (team.paddlers[i].paddlingSide.toUpperCase().equals("LX")){
+                images[1][lx] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
+                tlables[1][lx] = new Label(team.paddlers[i].name, skin);
                 if (team.paddlers[i].gender.toUpperCase().equals("M")) {
-                    images[1][lx] = new Image(new Texture(Gdx.files.internal("core/assets/man.jpg")));
+                    changeImageColor(images[1][lx],Color.BLUE);
+                    //changeLabelColor(tlables[1][lx],Color.BLUE);
                 } else {
-                    images[1][lx] = new Image(new Texture(Gdx.files.internal("core/assets/woman.jpg")));
+                    changeImageColor(images[1][lx],Color.PINK);
+                    //changeLabelColor(tlables[1][lx],Color.PINK);
                 }
-                labels[1][lx] = new Label(team.paddlers[i].name, skin);
                 group.addActor(images[1][lx]);
-                group.addActor(labels[1][lx]);
+                group.addActor(tlables[1][lx]);
                 images[1][lx].setName(team.paddlers[i].name);
                 images[1][lx].setPosition(0,top + 20 - (lx*vSpacing));
-                labels[1][lx].setName(team.paddlers[i].name);
-                labels[1][lx].setPosition(0, top - (lx*vSpacing));
+                tlables[1][lx].setName(team.paddlers[i].name);
+                tlables[1][lx].setPosition(0, top - (lx*vSpacing));
+                team.paddlers[i].teamCol = 1;
+                team.paddlers[i].teamRow = lx;
                 lx = lx + 1;
             } else {
                 if (team.paddlers[i].paddlingSide.toUpperCase().equals("LR")){
+                    images[2][lr] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
+                    tlables[2][lr] = new Label(team.paddlers[i].name, skin);
                     if (team.paddlers[i].gender.toUpperCase().equals("M")) {
-                        images[2][lr] = new Image(new Texture(Gdx.files.internal("core/assets/man.jpg")));
+                        changeImageColor(images[2][lr],Color.BLUE);
+                        //changeLabelColor(tlables[2][lr],Color.BLUE);
                     } else {
-                        images[2][lr] = new Image(new Texture(Gdx.files.internal("core/assets/woman.jpg")));
+                        changeImageColor(images[2][lr],Color.PINK);
+                        //changeLabelColor(tlables[2][lr],Color.PINK);
                     }
-                    labels[2][lr] = new Label(team.paddlers[i].name, skin);
+                    tlables[2][lr] = new Label(team.paddlers[i].name, skin);
                     group.addActor(images[2][lr]);
-                    group.addActor(labels[2][lr]);
+                    group.addActor(tlables[2][lr]);
                     images[2][lr].setName(team.paddlers[i].name);
                     images[2][lr].setPosition(hSpacing,top + 20 - (lr*vSpacing));
-                    labels[2][lr].setName(team.paddlers[i].name);
-                    labels[2][lr].setPosition(hSpacing, top - (lr*vSpacing));
+                    tlables[2][lr].setName(team.paddlers[i].name);
+                    tlables[2][lr].setPosition(hSpacing, top - (lr*vSpacing));
+                    team.paddlers[i].teamCol = 2;
+                    team.paddlers[i].teamRow = lr;
                     lr = lr + 1;
                 } else {
                     if (team.paddlers[i].paddlingSide.toUpperCase().equals("RX")){
+                        images[3][rx] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
+                        tlables[3][rx] = new Label(team.paddlers[i].name, skin);
                         if (team.paddlers[i].gender.toUpperCase().equals("M")) {
-                            images[3][rx] = new Image(new Texture(Gdx.files.internal("core/assets/man.jpg")));
+                            changeImageColor(images[3][rx],Color.BLUE);
+                            //changeLabelColor(tlables[3][rx],Color.BLUE);
                         } else {
-                            images[3][rx] = new Image(new Texture(Gdx.files.internal("core/assets/woman.jpg")));
+                            changeImageColor(images[3][rx],Color.PINK);
+                            //changeLabelColor(tlables[3][rx],Color.PINK);
                         }
-                        labels[3][rx] = new Label(team.paddlers[i].name, skin);
+                        tlables[3][rx] = new Label(team.paddlers[i].name, skin);
                         group.addActor(images[3][rx]);
-                        group.addActor(labels[3][rx]);
+                        group.addActor(tlables[3][rx]);
                         images[3][rx].setName(team.paddlers[i].name);
                         images[3][rx].setPosition(hSpacing * 2,top + 20 - (rx*vSpacing));
-                        labels[3][rx].setName(team.paddlers[i].name);
-                        labels[3][rx].setPosition(hSpacing * 2, top - (rx*vSpacing));
+                        tlables[3][rx].setName(team.paddlers[i].name);
+                        tlables[3][rx].setPosition(hSpacing * 2, top - (rx*vSpacing));
+                        team.paddlers[i].teamCol = 3;
+                        team.paddlers[i].teamRow = rx;
                         rx = rx + 1;
                     } else {
+                        images[4][rl] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
+                        tlables[4][rl] = new Label(team.paddlers[i].name, skin);
                         if (team.paddlers[i].gender.toUpperCase().equals("M")) {
-                            images[4][rl] = new Image(new Texture(Gdx.files.internal("core/assets/man.jpg")));
+                            changeImageColor(images[4][rl],Color.BLUE);
+                            //changeLabelColor(tlables[4][rl],Color.BLUE);
                         } else {
-                            images[4][rl] = new Image(new Texture(Gdx.files.internal("core/assets/woman.jpg")));
+                            changeImageColor(images[4][rl],Color.PINK);
+                            //changeLabelColor(tlables[4][rl],Color.PINK);
                         }
-                        labels[4][rl] = new Label(team.paddlers[i].name, skin);
+                        tlables[4][rl] = new Label(team.paddlers[i].name, skin);
                         group.addActor(images[4][rl]);
-                        group.addActor(labels[4][rl]);
+                        group.addActor(tlables[4][rl]);
                         images[4][rl].setName(team.paddlers[i].name);
                         images[4][rl].setPosition(hSpacing * 3,top + 20 - (rl*vSpacing));
-                        labels[4][rl].setName(team.paddlers[i].name);
-                        labels[4][rl].setPosition(hSpacing * 3, top - (rl*vSpacing));
+                        tlables[4][rl].setName(team.paddlers[i].name);
+                        tlables[4][rl].setPosition(hSpacing * 3, top - (rl*vSpacing));
+                        team.paddlers[i].teamCol = 4;
+                        team.paddlers[i].teamRow = rl;
                         rl = rl + 1;
                     }
                 }
@@ -130,6 +156,30 @@ public class TeamView {
         stage.addActor(group);
     }
 
+
+    public boolean changeImageColor(Image image, Color color){
+        ColorAction colorAction = new ColorAction();
+        colorAction.setEndColor(color);
+        colorAction.setDuration(1f);
+        image.addAction(colorAction);
+        return true;
+    }
+
+    public boolean changeActorColor(Actor actor, Color color){
+        ColorAction colorAction = new ColorAction();
+        colorAction.setEndColor(color);
+        colorAction.setDuration(1f);
+        actor.addAction(colorAction);
+        return true;
+    }
+
+    public boolean changeLabelColor(Label label, Color color){
+        ColorAction colorAction = new ColorAction();
+        colorAction.setEndColor(color);
+        colorAction.setDuration(1f);
+        label.addAction(colorAction);
+        return true;
+    }
 
 
 }

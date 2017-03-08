@@ -59,4 +59,12 @@ public class Team {
         numSweeps = is;
     }
 
+    public Paddler getPaddler(String paddlerName, Team team) {
+        for (int i = 0; i < team.numPaddlers; i++) {
+            if (team.paddlers[i].name.equals(paddlerName)) {
+                return team.paddlers[i];
+            }
+        }
+        return null;
+    }
 }
