@@ -2,6 +2,7 @@ package nz.co.karodata.view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -120,6 +121,27 @@ public class DragonBoatView {
 
 
         stage.addActor(group);
+    }
+
+    public static boolean testActorBoat(Actor actor, DragonBoatView dragonBoatView) {
+        if (actor != null) {
+            for (int i = 0; i < DragonBoat.NUM_SIDES; i++) {
+                for (int j = 0; j < DragonBoat.NUM_ROWS; j++) {
+                    if (dragonBoatView.blables[i][j] == actor) {
+                        return true;
+                    }
+                }
+            }
+            if (dragonBoatView.sweep == actor){
+                return true;
+            }
+            if (dragonBoatView.drummer == actor){
+                return true;
+            }
+            return false;
+        } else {
+            return false;
+        }
     }
 
 }

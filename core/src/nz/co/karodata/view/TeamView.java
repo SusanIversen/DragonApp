@@ -160,7 +160,7 @@ public class TeamView {
     public boolean changeImageColor(Image image, Color color){
         ColorAction colorAction = new ColorAction();
         colorAction.setEndColor(color);
-        colorAction.setDuration(1f);
+        colorAction.setDuration(0.1f);
         image.addAction(colorAction);
         return true;
     }
@@ -168,7 +168,7 @@ public class TeamView {
     public boolean changeActorColor(Actor actor, Color color){
         ColorAction colorAction = new ColorAction();
         colorAction.setEndColor(color);
-        colorAction.setDuration(1f);
+        colorAction.setDuration(0.1f);
         actor.addAction(colorAction);
         return true;
     }
@@ -176,9 +176,27 @@ public class TeamView {
     public boolean changeLabelColor(Label label, Color color){
         ColorAction colorAction = new ColorAction();
         colorAction.setEndColor(color);
-        colorAction.setDuration(1f);
+        colorAction.setDuration(0.1f);
         label.addAction(colorAction);
         return true;
+    }
+
+    public static boolean testActorTeam(Actor actor, TeamView teamView) {
+        if (actor != null) {
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 20; j++) {
+                    if (teamView.images[i][j] == actor){
+                        return true;
+                    }
+                    if (teamView.tlables[i][j] == actor){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        } else {
+            return false;
+        }
     }
 
 

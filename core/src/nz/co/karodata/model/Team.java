@@ -67,4 +67,22 @@ public class Team {
         }
         return null;
     }
+    public Person getSweep(String sweepName, Team team) {
+        for (int i = 0; i < team.numSweeps; i++) {
+            if (team.sweeps[i].name.equals(sweepName)) {
+                return team.sweeps[i];
+            }
+        }
+        return null;
+    }
+
+    public Person getDrummer(String drummerName, Team team) {
+        for (int i = 0; i < team.numDrummers; i++) {
+            if (team.drummers[i].name.equals(drummerName)) {
+                return team.sweeps[i];
+            }
+        }
+        return null;
+    }
+
 }

@@ -27,6 +27,15 @@ public class DragonBoat {
         }
     }
 
+    public Paddler removePaddler(int column, int row){
+        if(row >= 0 && row < NUM_ROWS && column >= 0 && column < NUM_SIDES){
+            paddlers[column][row] = null;
+            return null;
+        }else{
+            return null;
+        }
+    }
+
     public long leftWeight(DragonBoat dragonBoat){
         long w = 0;
         for(int i = 0; i < DragonBoat.NUM_ROWS; i++) {
