@@ -49,7 +49,32 @@ public class TeamView {
         float hSpacing = WIDTH/4;
         float top = HEIGHT;
 
-        //Drummer
+        int d =0;
+        int lx = 0;
+        int lr = 0;
+        int rl = 0;
+        int rx = 0;
+        int s = 0;
+
+        //Drummers
+        for(int i = 0; i < team.numDrummers; i++){
+            images[0][d] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
+            tlables[0][d] = new Label(team.drummers[i].name, skin);
+            if (team.drummers[i].gender.toUpperCase().equals("M")) {
+                changeImageColor(images[1][lx],Color.BLUE);
+            } else {
+                changeImageColor(images[1][lx],Color.PINK);
+            }
+            group.addActor(images[0][d]);
+            group.addActor(tlables[0][d]);
+            images[0][lx].setName(team.paddlers[i].name);
+            images[0][lx].setPosition(0,top + 20 - (lx*vSpacing));
+            tlables[0][lx].setName(team.paddlers[i].name);
+            tlables[0][lx].setPosition(0, top - (lx*vSpacing));
+            team.paddlers[i].teamCol = 0;
+            team.paddlers[i].teamRow = lx;
+            lx = lx + 1;
+        }
         //group.addActor(drummer);
         //drummer.setName("Drummer");
         //drummer.setAlignment(Align.center);
@@ -58,14 +83,6 @@ public class TeamView {
         //drummer.setPosition(hSpacing *1/2, top - (2 * vSpacing));
 
         //Paddlers
-        int d =0;
-        int lx = 0;
-        int lr = 0;
-        int rl = 0;
-        int rx = 0;
-        int s = 0;
-
-        Gdx.app.log("Team Size",Integer.toString(team.numPaddlers) );
         for(int i = 0; i < team.numPaddlers; i++){
             if (team.paddlers[i].paddlingSide.toUpperCase().equals("LX")){
                 images[1][lx] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
@@ -112,7 +129,7 @@ public class TeamView {
                         images[3][rx] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
                         tlables[3][rx] = new Label(team.paddlers[i].name, skin);
                         if (team.paddlers[i].gender.toUpperCase().equals("M")) {
-                            changeImageColor(images[3][rx],Color.BLUE);
+                            changeImageColor(images[3][rx],Color.ROYAL);
                             //changeLabelColor(tlables[3][rx],Color.BLUE);
                         } else {
                             changeImageColor(images[3][rx],Color.PINK);
@@ -132,7 +149,7 @@ public class TeamView {
                         images[4][rl] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
                         tlables[4][rl] = new Label(team.paddlers[i].name, skin);
                         if (team.paddlers[i].gender.toUpperCase().equals("M")) {
-                            changeImageColor(images[4][rl],Color.BLUE);
+                            changeImageColor(images[4][rl],Color.ROYAL);
                             //changeLabelColor(tlables[4][rl],Color.BLUE);
                         } else {
                             changeImageColor(images[4][rl],Color.PINK);
