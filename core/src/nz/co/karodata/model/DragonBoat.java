@@ -17,6 +17,16 @@ public class DragonBoat {
     //Empty Constructor
     }
 
+    public Person addDrummer(Person person){
+            drummer = person;
+            return drummer;
+    }
+
+    public Person removeDrummer(Person person){
+        drummer = null;
+        return null;
+    }
+
     public Paddler addPaddler(int column, int row, Paddler paddler){
         if(row >= 0 && row < NUM_ROWS && column >= 0 && column < NUM_SIDES){
             Paddler tmp = paddlers[column][row];
@@ -34,6 +44,16 @@ public class DragonBoat {
         }else{
             return null;
         }
+    }
+
+    public Person addSweep(Person person){
+        sweep = person;
+        return sweep;
+    }
+
+    public Person removeSweep(Person person){
+        sweep = null;
+        return null;
     }
 
     public long leftWeight(DragonBoat dragonBoat){

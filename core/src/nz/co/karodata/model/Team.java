@@ -79,7 +79,7 @@ public class Team {
     public Person getDrummer(String drummerName, Team team) {
         for (int i = 0; i < team.numDrummers; i++) {
             if (team.drummers[i].name.equals(drummerName)) {
-                return team.sweeps[i];
+                return team.drummers[i];
             }
         }
         return null;

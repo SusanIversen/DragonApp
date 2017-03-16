@@ -59,43 +59,41 @@ public class TeamView {
         //Drummers
         Label drummerHeader = new Label("Drummers",skin) ;
         group.addActor(drummerHeader);
-        drummerHeader.setPosition(0, top + 120);
+        drummerHeader.setPosition(0, top + 100);
+        changeLabelColor(drummerHeader,Color.GREEN);
 
         for(int i = 0; i < team.numDrummers; i++){
-            images[0][d] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
             tlables[0][d] = new Label(team.drummers[i].name, skin);
-            if (team.drummers[i].gender.toUpperCase().equals("M")) {
-                changeImageColor(images[0][d],Color.ROYAL);
-            } else {
-                changeImageColor(images[0][d],Color.PINK);
-            }
-            group.addActor(images[0][d]);
             group.addActor(tlables[0][d]);
-            images[0][d].setName(team.paddlers[i].name);
-            images[0][d].setPosition(0,top + 100);
-            tlables[0][d].setName(team.paddlers[i].name);
-            tlables[0][d].setPosition(0, top + 80);
-            //team.paddlers[i].teamCol = 0;
-            //team.paddlers[i].teamRow = lx;
+            tlables[0][d].setName(team.drummers[i].name);
+            tlables[0][d].setPosition(hSpacing * (i+1), top + 100);
+            team.drummers[i].teamCol = 0;
+            team.drummers[i].teamRow = d;
             d = d + 1;
         }
 
 
-
         //Paddlers
+        Label paddlerHeader = new Label("Paddlers",skin) ;
+        group.addActor(paddlerHeader);
+        paddlerHeader.setPosition(0, top + 60);
+        changeLabelColor(paddlerHeader,Color.GREEN);
         Label paddlerHeaderLX = new Label("LX",skin) ;
         group.addActor(paddlerHeaderLX);
         paddlerHeaderLX.setPosition(0, top + 40);
+        changeLabelColor(paddlerHeaderLX,Color.GREEN);
         Label paddlerHeaderLR = new Label("LR",skin) ;
         group.addActor(paddlerHeaderLR);
         paddlerHeaderLR.setPosition(hSpacing, top + 40);
+        changeLabelColor(paddlerHeaderLR,Color.GREEN);
         Label paddlerHeaderRL = new Label("RL",skin) ;
         group.addActor(paddlerHeaderRL);
         paddlerHeaderRL.setPosition(hSpacing*2, top + 40);
+        changeLabelColor(paddlerHeaderRL,Color.GREEN);
         Label paddlerHeaderRX = new Label("RX",skin) ;
         group.addActor(paddlerHeaderRX);
         paddlerHeaderRX.setPosition(hSpacing*3, top + 40);
-
+        changeLabelColor(paddlerHeaderRX,Color.GREEN);
 
 
         for(int i = 0; i < team.numPaddlers; i++){
@@ -175,6 +173,21 @@ public class TeamView {
                     }
                 }
             }
+        }
+        //Sweeps
+        Label sweepHeader = new Label("Sweeps",skin) ;
+        group.addActor(sweepHeader);
+        sweepHeader.setPosition(0, top - 500);
+        changeLabelColor(sweepHeader,Color.GREEN);
+
+        for(int i = 0; i < team.numSweeps; i++){
+            tlables[5][s] = new Label(team.sweeps[i].name, skin);
+            group.addActor(tlables[5][s]);
+            tlables[5][s].setName(team.sweeps[i].name);
+            tlables[5][s].setPosition(hSpacing * (i+1), top - 500);
+            team.sweeps[i].teamCol = 5;
+            team.sweeps[i].teamRow = s;
+            s = s + 1;
         }
 
         stage.addActor(group);
