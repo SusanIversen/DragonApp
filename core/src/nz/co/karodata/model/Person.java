@@ -10,6 +10,8 @@ public class Person {
     public String gender;
     public int teamCol;
     public int teamRow;
+    public Boolean available;
+    public Boolean used;
 
     public Person(Person person){
         this.person = person;
@@ -19,7 +21,8 @@ public class Person {
         this.name = inName;
         this.weight = inWeight;
         this.gender = inGender;
-
+        this.available = true;
+        this.used = false;
     }
 }
 

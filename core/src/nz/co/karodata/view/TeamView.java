@@ -57,42 +57,55 @@ public class TeamView {
         int s = 0;
 
         //Drummers
+        Label drummerHeader = new Label("Drummers",skin) ;
+        group.addActor(drummerHeader);
+        drummerHeader.setPosition(0, top + 120);
+
         for(int i = 0; i < team.numDrummers; i++){
             images[0][d] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
             tlables[0][d] = new Label(team.drummers[i].name, skin);
             if (team.drummers[i].gender.toUpperCase().equals("M")) {
-                changeImageColor(images[1][lx],Color.BLUE);
+                changeImageColor(images[0][d],Color.ROYAL);
             } else {
-                changeImageColor(images[1][lx],Color.PINK);
+                changeImageColor(images[0][d],Color.PINK);
             }
             group.addActor(images[0][d]);
             group.addActor(tlables[0][d]);
-            images[0][lx].setName(team.paddlers[i].name);
-            images[0][lx].setPosition(0,top + 20 - (lx*vSpacing));
-            tlables[0][lx].setName(team.paddlers[i].name);
-            tlables[0][lx].setPosition(0, top - (lx*vSpacing));
-            team.paddlers[i].teamCol = 0;
-            team.paddlers[i].teamRow = lx;
-            lx = lx + 1;
+            images[0][d].setName(team.paddlers[i].name);
+            images[0][d].setPosition(0,top + 100);
+            tlables[0][d].setName(team.paddlers[i].name);
+            tlables[0][d].setPosition(0, top + 80);
+            //team.paddlers[i].teamCol = 0;
+            //team.paddlers[i].teamRow = lx;
+            d = d + 1;
         }
-        //group.addActor(drummer);
-        //drummer.setName("Drummer");
-        //drummer.setAlignment(Align.center);
-        //drummer.setHeight(vSpacing);
-        //drummer.setWidth(hSpacing);
-        //drummer.setPosition(hSpacing *1/2, top - (2 * vSpacing));
+
+
 
         //Paddlers
+        Label paddlerHeaderLX = new Label("LX",skin) ;
+        group.addActor(paddlerHeaderLX);
+        paddlerHeaderLX.setPosition(0, top + 40);
+        Label paddlerHeaderLR = new Label("LR",skin) ;
+        group.addActor(paddlerHeaderLR);
+        paddlerHeaderLR.setPosition(hSpacing, top + 40);
+        Label paddlerHeaderRL = new Label("RL",skin) ;
+        group.addActor(paddlerHeaderRL);
+        paddlerHeaderRL.setPosition(hSpacing*2, top + 40);
+        Label paddlerHeaderRX = new Label("RX",skin) ;
+        group.addActor(paddlerHeaderRX);
+        paddlerHeaderRX.setPosition(hSpacing*3, top + 40);
+
+
+
         for(int i = 0; i < team.numPaddlers; i++){
             if (team.paddlers[i].paddlingSide.toUpperCase().equals("LX")){
                 images[1][lx] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
                 tlables[1][lx] = new Label(team.paddlers[i].name, skin);
                 if (team.paddlers[i].gender.toUpperCase().equals("M")) {
-                    changeImageColor(images[1][lx],Color.BLUE);
-                    //changeLabelColor(tlables[1][lx],Color.BLUE);
+                    changeImageColor(images[1][lx],Color.ROYAL);
                 } else {
                     changeImageColor(images[1][lx],Color.PINK);
-                    //changeLabelColor(tlables[1][lx],Color.PINK);
                 }
                 group.addActor(images[1][lx]);
                 group.addActor(tlables[1][lx]);
@@ -108,11 +121,9 @@ public class TeamView {
                     images[2][lr] = new Image(new Texture(Gdx.files.internal("core/assets/person.jpg")));
                     tlables[2][lr] = new Label(team.paddlers[i].name, skin);
                     if (team.paddlers[i].gender.toUpperCase().equals("M")) {
-                        changeImageColor(images[2][lr],Color.BLUE);
-                        //changeLabelColor(tlables[2][lr],Color.BLUE);
+                        changeImageColor(images[2][lr],Color.ROYAL);
                     } else {
                         changeImageColor(images[2][lr],Color.PINK);
-                        //changeLabelColor(tlables[2][lr],Color.PINK);
                     }
                     tlables[2][lr] = new Label(team.paddlers[i].name, skin);
                     group.addActor(images[2][lr]);
@@ -130,10 +141,8 @@ public class TeamView {
                         tlables[3][rx] = new Label(team.paddlers[i].name, skin);
                         if (team.paddlers[i].gender.toUpperCase().equals("M")) {
                             changeImageColor(images[3][rx],Color.ROYAL);
-                            //changeLabelColor(tlables[3][rx],Color.BLUE);
                         } else {
                             changeImageColor(images[3][rx],Color.PINK);
-                            //changeLabelColor(tlables[3][rx],Color.PINK);
                         }
                         tlables[3][rx] = new Label(team.paddlers[i].name, skin);
                         group.addActor(images[3][rx]);
@@ -150,10 +159,8 @@ public class TeamView {
                         tlables[4][rl] = new Label(team.paddlers[i].name, skin);
                         if (team.paddlers[i].gender.toUpperCase().equals("M")) {
                             changeImageColor(images[4][rl],Color.ROYAL);
-                            //changeLabelColor(tlables[4][rl],Color.BLUE);
                         } else {
                             changeImageColor(images[4][rl],Color.PINK);
-                            //changeLabelColor(tlables[4][rl],Color.PINK);
                         }
                         tlables[4][rl] = new Label(team.paddlers[i].name, skin);
                         group.addActor(images[4][rl]);
