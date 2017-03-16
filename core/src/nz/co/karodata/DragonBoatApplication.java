@@ -133,7 +133,7 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
                     curPaddler.available = false;
                 } else {
                     if (curPaddler.gender.toUpperCase().equals("M")) {
-                        teamView.changeImageColor(teamView.images[curPaddler.teamCol][curPaddler.teamRow], Color.CYAN);
+                        teamView.changeImageColor(teamView.images[curPaddler.teamCol][curPaddler.teamRow], Color.ROYAL);
                     } else {
                         teamView.changeImageColor(teamView.images[curPaddler.teamCol][curPaddler.teamRow], Color.PINK);
                     }
@@ -254,8 +254,8 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
                             curPaddler.used = false;
                             //recolour them
                             if (curPaddler.gender.toUpperCase().equals("M")) {
-                                teamView.changeImageColor(teamView.images[curPaddler.teamCol][curPaddler.teamRow], Color.CYAN);
-                                teamView.changeActorColor(teamView.tlables[curPaddler.teamCol][curPaddler.teamRow], Color.CYAN);
+                                teamView.changeImageColor(teamView.images[curPaddler.teamCol][curPaddler.teamRow], Color.ROYAL);
+                                teamView.changeActorColor(teamView.tlables[curPaddler.teamCol][curPaddler.teamRow], Color.ROYAL);
                             } else {
                                 teamView.changeImageColor(teamView.images[curPaddler.teamCol][curPaddler.teamRow], Color.PINK);
                                 teamView.changeActorColor(teamView.tlables[curPaddler.teamCol][curPaddler.teamRow], Color.PINK);
@@ -342,8 +342,8 @@ public class DragonBoatApplication extends ApplicationAdapter implements InputPr
                         curPaddler.available = true;
                         //recolour them
                         if (curPaddler.gender.toUpperCase().equals("M")) {
-                            teamView.changeImageColor(teamView.images[curPaddler.teamCol][curPaddler.teamRow], Color.CYAN);
-                            teamView.changeActorColor(teamView.tlables[curPaddler.teamCol][curPaddler.teamRow], Color.CYAN);
+                            teamView.changeImageColor(teamView.images[curPaddler.teamCol][curPaddler.teamRow], Color.ROYAL);
+                            teamView.changeActorColor(teamView.tlables[curPaddler.teamCol][curPaddler.teamRow], Color.ROYAL);
                         } else {
                             teamView.changeImageColor(teamView.images[curPaddler.teamCol][curPaddler.teamRow], Color.PINK);
                             teamView.changeActorColor(teamView.tlables[curPaddler.teamCol][curPaddler.teamRow], Color.PINK);

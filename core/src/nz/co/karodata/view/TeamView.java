@@ -67,6 +67,10 @@ public class TeamView {
             group.addActor(tlables[0][d]);
             tlables[0][d].setName(team.drummers[i].name);
             tlables[0][d].setPosition(hSpacing * (i+1), top + 100);
+            tlables[0][d].setHeight(20);
+            tlables[0][d].setWidth(100);
+            tlables[0][d].setAlignment(Align.bottomLeft);
+
             team.drummers[i].teamCol = 0;
             team.drummers[i].teamRow = d;
             d = d + 1;
@@ -111,6 +115,8 @@ public class TeamView {
                 images[1][lx].setPosition(0,top + 20 - (lx*vSpacing));
                 tlables[1][lx].setName(team.paddlers[i].name);
                 tlables[1][lx].setPosition(0, top - (lx*vSpacing));
+                tlables[1][lx].setHeight(20);
+                tlables[1][lx].setWidth(100);
                 team.paddlers[i].teamCol = 1;
                 team.paddlers[i].teamRow = lx;
                 lx = lx + 1;
@@ -130,6 +136,8 @@ public class TeamView {
                     images[2][lr].setPosition(hSpacing,top + 20 - (lr*vSpacing));
                     tlables[2][lr].setName(team.paddlers[i].name);
                     tlables[2][lr].setPosition(hSpacing, top - (lr*vSpacing));
+                    tlables[2][lr].setHeight(20);
+                    tlables[2][lr].setWidth(100);
                     team.paddlers[i].teamCol = 2;
                     team.paddlers[i].teamRow = lr;
                     lr = lr + 1;
@@ -149,6 +157,8 @@ public class TeamView {
                         images[3][rx].setPosition(hSpacing * 2,top + 20 - (rx*vSpacing));
                         tlables[3][rx].setName(team.paddlers[i].name);
                         tlables[3][rx].setPosition(hSpacing * 2, top - (rx*vSpacing));
+                        tlables[3][rx].setHeight(20);
+                        tlables[3][rx].setWidth(100);
                         team.paddlers[i].teamCol = 3;
                         team.paddlers[i].teamRow = rx;
                         rx = rx + 1;
@@ -167,6 +177,9 @@ public class TeamView {
                         images[4][rl].setPosition(hSpacing * 3,top + 20 - (rl*vSpacing));
                         tlables[4][rl].setName(team.paddlers[i].name);
                         tlables[4][rl].setPosition(hSpacing * 3, top - (rl*vSpacing));
+
+                        tlables[4][rl].setHeight(20);
+                        tlables[4][rl].setWidth(100);
                         team.paddlers[i].teamCol = 4;
                         team.paddlers[i].teamRow = rl;
                         rl = rl + 1;
